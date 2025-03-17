@@ -8,15 +8,18 @@ Count your mutations in bam files
 Clone the repo:
 ```bash
 git clone https://github.com/lindbjerg-group/mutspy mutspy
+```
 
 Install required dependencies:
 ```bash
 conda create -n mutspy-env bioconda::r-docopt bioconda::bioconductor-rsamtools
+```
 
 Run some mutspy commands:
 ```bash
 conda activate mutspy-env
 mutspy/src/mutspy.R --help
+```
 
 
 ```
@@ -60,18 +63,16 @@ Requires:
 Version:
   0.3.1 
 ```
- 
 
-Check the help
 
 Make a stranded count three specific positions, one using
 the ambiguous base N:
 ```bash
 mutspy/src/mutspy.R count -b sample.bam 'chr2:233840772_TC/GA chr2:233840775_T/N chrX:108175747_G/GT'
-
+```
 
 ## Output
-
+```
 |Sample Name |Chr  |Start     |Ref seq |Alt seq |Fwd alt |Rev alt |Fwd total |Rev total |
 |------------|-----|----------|--------|--------|--------|--------|----------|----------|
 |sample.bam  |chr2 |233840772 |TC      |GA      |0       |0       |74        |69        |   
@@ -80,6 +81,7 @@ mutspy/src/mutspy.R count -b sample.bam 'chr2:233840772_TC/GA chr2:233840775_T/N
 |sample.bam  |chr12|25245347  |C       |T       |14      |14      |90        |75        |
 |sample.bam  |chr12|25245347  |C       |C       |76      |61      |90        |75        |
 |sample.bam  |chr12|25245347  |C       |G       |0       |0       |90        |75        |
+``` 
 
 
 ## Contact
