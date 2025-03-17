@@ -13,17 +13,15 @@ Usage:
 
 Options:
   -h                       Show this screen.
-  -d                       Calculate mutation distribution along read.
   -s                       Count fw and bw strand separately.
   -r                       Count both bases of overlapping read pairs.
-  -n                       Normalize counts to fraction of total in interval.
   -D                       Include duplicate reads (bitflag 0x400) [default: False]
   -P                       Print reads instead of counting [default: False]
   -b --bam=bam             Path to an indexed bam file.
   -l --bamlist=bamlist     Path to file listing indexed bam files one per line.
   -o --out=out             Path to file were output are appended [default: stdout].
   -m --mapq=mapq           Only include data with minimum this mapq [default: 10].
-  -i --interval=interval   Size interval to consider [default: 1,1000]
+
 
 Arguments:
   <mut>                   Mutations is in the form <seqname>:<pos>_<ref>/<alt>, 
