@@ -1,28 +1,6 @@
 # mutspy
-Count your mutations in bam files
-
-## Requires
-- R and R packages docopt and Rsamtools
-
-## Example
-Clone the repo:
-```bash
-git clone https://github.com/lindbjerg-group/mutspy mutspy
 ```
-
-Install required dependencies:
-```bash
-conda create -n mutspy-env bioconda::r-docopt bioconda::bioconductor-rsamtools
-```
-
-Run some mutspy commands:
-```bash
-conda activate mutspy-env
-mutspy/src/mutspy.R --help
-
-
-Mutation counts in bam files.
-
+Mutation counts in bam files
 
 Usage:
   mutspy.R count [-dsrDP] (-b bam | -l bamlist) [-o out -m mapq] <mut>...
@@ -59,6 +37,26 @@ Version:
   0.3.1 
 ```
 
+
+## Requires
+- R and R packages docopt and Rsamtools
+
+## Example
+Clone the repo:
+```bash
+git clone https://github.com/lindbjerg-group/mutspy mutspy
+```
+
+Install required dependencies:
+```bash
+conda create -n mutspy-env bioconda::r-docopt bioconda::bioconductor-rsamtools
+```
+
+Run some mutspy commands:
+```bash
+conda activate mutspy-env
+mutspy/src/mutspy.R --help
+```
 
 Make a stranded count three specific positions, one using
 the ambiguous base N (expands into all four bases):
