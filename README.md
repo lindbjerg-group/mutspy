@@ -3,7 +3,7 @@
 Mutation counts in bam files
 
 Usage:
-  mutspy.R count [-dsrDP] (-b bam | -l bamlist) [-o out -m mapq] <mut>...
+  mutspy.R count [-srDP] (-b bam | -l bamlist) [-o out -m mapq] <mut>...
   mutspy.R -h
 
 
