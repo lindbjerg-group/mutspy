@@ -61,9 +61,9 @@ Version:
 
 
 Make a stranded count three specific positions, one using
-the ambiguous base N:
+the ambiguous base N (expands into all four bases):
 ```bash
-mutspy/src/mutspy.R count -s -b sample.bam 'chr2:233840772_TC/GA chr2:233840775_T/N chrX:108175747_G/GT'
+mutspy/src/mutspy.R count -s -b sample.bam 'chr2:233840772_TC/GA chr12:25245347_T/N chrX:108175747_G/GT'
 ```
 
 ## Output
