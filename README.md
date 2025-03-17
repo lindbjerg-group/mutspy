@@ -8,4 +8,6 @@ Count your mutations in bam files
 - mutspy count -b BAM chr10:123456_G/A
 - mutspy --help
 
+## Contact
+- mads.heilskov@clin.au.dk
 
