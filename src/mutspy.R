@@ -29,7 +29,7 @@ Arguments:
   <mut>                   Mutations is in the form <seqname>:<pos>_<ref>/<alt>, 
                           e.g. chr10:114925316_G/A (SNP), chr10:114925316_GGT/G (deletion),
                           chr10:114925316_G/GAT (insertion), and  chr10:114925316_GGT/GAT 
-                          (MNP). Several mutations can be given as mut1 mut2 mutn.
+                          (MNP). Several mutations can be given as 'mut1 mut2 mutn'.
                           Alternatively a file with lines of sitemuts can be given.
                           The mutation N expands into all four bases.
                           Count outputs are 'alt total' or, if stranded,

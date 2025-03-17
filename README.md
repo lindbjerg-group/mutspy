@@ -4,9 +4,83 @@ Count your mutations in bam files
 ## Requires
 - R and R packages docopt and Rsamtools
 
-## How to
-- mutspy count -b BAM chr10:123456_G/A
-- mutspy --help
+## Example
+Clone the repo:
+```bash
+git clone https://github.com/lindbjerg-group/mutspy mutspy
+
+Install required dependencies:
+```bash
+conda create -n mutspy-env bioconda::r-docopt bioconda::bioconductor-rsamtools
+
+Run some mutspy commands:
+```bash
+conda activate mutspy-env
+mutspy/src/mutspy.R --help
+
+
+```
+Mutation counts in bam files.
+
+
+Usage:
+  mutspy.R count [-dsrDP] (-b bam | -l bamlist) [-o out -m mapq] <mut>...
+  mutspy.R -h
+
+
+
+Options:
+  -h                       Show this screen.
+  -d                       Calculate mutation distribution along read.
+  -s                       Count fw and bw strand separately.
+  -r                       Count both bases of overlapping read pairs.
+  -n                       Normalize counts to fraction of total in interval.
+  -D                       Include duplicate reads (bitflag 0x400) [default: False]
+  -P                       Print reads instead of counting [default: False]
+  -b --bam=bam             Path to an indexed bam file.
+  -l --bamlist=bamlist     Path to file listing indexed bam files one per line.
+  -o --out=out             Path to file were output are appended [default: stdout].
+  -m --mapq=mapq           Only include data with minimum this mapq [default: 10].
+  -i --interval=interval   Size interval to consider [default: 1,1000]
+
+Arguments:
+  <mut>                   Mutations is in the form <seqname>:<pos>_<ref>/<alt>, 
+                          e.g. chr10:114925316_G/A (SNP), chr10:114925316_GGT/G (deletion),
+                          chr10:114925316_G/GAT (insertion), and  chr10:114925316_GGT/GAT 
+                          (MNP). Several mutations can be given as 'mut1 mut2 mutn'.
+                          Alternatively a file with lines of sitemuts can be given.
+                          The mutation N expands into all four bases.
+                          Count outputs are 'alt total' or, if stranded,
+                          'alt.fw alt.bw total.fw total.bw'
+                          Note: mutspy is reference agnostic, only knowns the read sequence.
+
+Requires:
+  Rsamtools, docopt.
+
+Version:
+  0.3.1 
+```
+ 
+
+Check the help
+
+Make a stranded count three specific positions, one using
+the ambiguous base N:
+```bash
+mutspy/src/mutspy.R count -b sample.bam 'chr2:233840772_TC/GA chr2:233840775_T/N chrX:108175747_G/GT'
+
+
+## Output
+
+|Sample Name |Chr  |Start     |Ref seq |Alt seq |Fwd alt |Rev alt |Fwd total |Rev total |
+|------------|-----|----------|--------|--------|--------|--------|----------|----------|
+|sample.bam  |chr2 |233840772 |TC      |GA      |0       |0       |74        |69        |   
+|sample.bam  |chr12|25245347  |C       |A       |0       |0       |90        |75        |
+|sample.bam  |chrX |108175747 |G       |GT      |0       |0       |34        |43        |
+|sample.bam  |chr12|25245347  |C       |T       |14      |14      |90        |75        |
+|sample.bam  |chr12|25245347  |C       |C       |76      |61      |90        |75        |
+|sample.bam  |chr12|25245347  |C       |G       |0       |0       |90        |75        |
+
 
 ## Contact
 - mads.heilskov@clin.au.dk
